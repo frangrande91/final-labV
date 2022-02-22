@@ -1,0 +1,13 @@
+
+resilience4j.circuitbreaker:
+  instances:
+    service:
+      registerHealthIndicator: true
+      ringBufferSizeInHalfClosedState: 5
+      ringBufferSizeInOpenState: 3
+      waitDurationInOpenState: 10s
+      failureRateThreshold: 50
+      recordExceptions:
+        - java.io.IOException
+        - java.util.concurrent.TimeoutException
+        - org.springframework.web.client.HttpServerErrorException
